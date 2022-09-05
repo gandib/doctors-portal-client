@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="p-10 mx-12"
+        <footer className="p-10"
             style={{
                 background: `url(${bgFooter})`,
                 backgroundSize: 'cover'
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='my-10 text-center'>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by Doctors Portal</p>
+                <p>Copyright &copy; {new Date().getFullYear()} - All right reserved</p>
             </div>
         </footer>
     );
