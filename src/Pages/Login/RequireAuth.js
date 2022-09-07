@@ -8,9 +8,9 @@ import { toast } from 'react-toastify';
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
-    if (loading) {
+    if (loading || sending) {
         return <Loading></Loading>
     }
     if (!user) {
