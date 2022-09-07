@@ -78,7 +78,7 @@ const Login = () => {
                                 <input type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-xs"
                                 />
                             </div>
-                            <input className='btn w-full max-w-xs mt-3' type="submit" value='Reset Password' />
+                            <input className='btn w-full max-w-xs mt-3' type="submit" value='Send Password' />
                         </form>
                         :
                         <form onSubmit={handleSubmit(onSubmit)}>
