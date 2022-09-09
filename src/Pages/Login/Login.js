@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [isClick, setIsClick] = useState(false);
@@ -21,6 +22,7 @@ const Login = () => {
     let signInError;
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [token] = useToken(user || gUser);
 
 
     const onSubmit = async (data) => {
@@ -29,10 +31,10 @@ const Login = () => {
 
     //to use useEffect for handling: "Warning: Cannot update a component (`BrowserRouter`) while rendering a different component (`Login`)"
     useEffect(() => {
-        if (user || gUser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, gUser, navigate, from]);
+    }, [token, navigate, from]);
 
 
     if (loading || gLoading || sending) {

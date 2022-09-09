@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const BookingService = ({ service, setTreatment }) => {
-    const { name, slots, availableTime } = service;
+    const { name, slots } = service;
     return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <div className="card-body text-center">
@@ -10,7 +10,7 @@ const BookingService = ({ service, setTreatment }) => {
                 <p>{
                     slots.length > 0
                         // ? <span>{slots[0]}</span>
-                        ? <span>{availableTime}</span>
+                        ? <span>{slots[0]}</span>
                         : <span className='text-red-500'>Try another date</span>
                 }</p>
                 <p className='text-xs'>{slots.length} {slots.length > 1 ? 'SPACES' : 'SPACE'} AVAILABLE</p>
