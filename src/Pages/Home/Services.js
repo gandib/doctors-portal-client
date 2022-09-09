@@ -7,6 +7,7 @@ import Service from './Service';
 import PrimaryButton from './PrimaryButton';
 
 const Services = () => {
+    const handleNavigate = '/appointment';
     const services = [
         {
             _id: 1,
@@ -47,7 +48,7 @@ const Services = () => {
                     <div className='lg:mx-12'>
                         <h1 className="text-5xl font-bold">Box Office News!</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <PrimaryButton>Get Started</PrimaryButton>
+                        <PrimaryButton onClickNavigate={handleNavigate}>Get Started</PrimaryButton>
                     </div>
                 </div>
             </div>

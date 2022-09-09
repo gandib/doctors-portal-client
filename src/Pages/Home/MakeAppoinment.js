@@ -5,6 +5,7 @@ import PrimaryButton from './PrimaryButton';
 
 
 const MakeAppoinment = () => {
+    const handleNavigate = '/appointment';
     return (
         <section className='flex justify-center items-center' style={{
             background: `url(${appointment})`
@@ -16,7 +17,7 @@ const MakeAppoinment = () => {
                 <h3 className='text-xl text-secondary font-bold py-6'>Appointment</h3>
                 <h2 className='text-3xl text-white py-6'>Make an appointment Today</h2>
                 <p className='text-white py-6'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
-                <PrimaryButton>Get Started</PrimaryButton>
+                <PrimaryButton onClickNavigate={handleNavigate}>Get Started</PrimaryButton>
             </div>
         </section>
     );
