@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import Loading from '../Shared/Loading';
 
 const MyAppointments = () => {
     const [user] = useAuthState(auth);
     const [appointments, setAppointments] = useState([]);
     const navigate = useNavigate();
+
 
     useEffect(() => {
         if (user) {
@@ -30,7 +32,9 @@ const MyAppointments = () => {
                     setAppointments(data)
                 });
         }
-    }, [user]);
+    }, [user, navigate]);
+
+
     return (
         <div>
             <h2>My Appointments {appointments.length}</h2>
@@ -43,6 +47,7 @@ const MyAppointments = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Treatment</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,6 +58,10 @@ const MyAppointments = () => {
                                 <td>{a.date}</td>
                                 <td>{a.slot}</td>
                                 <td>{a.treatment}</td>
+                                <td>
+                                    {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {(a.price && a.paid) && <span className='text-success'>Paid</span>}
+                                </td>
                             </tr>)
                         }
 
