@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
-import el from 'date-fns/esm/locale/el/index.js';
 
 const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
     const { slots, name, _id, price } = treatment;
